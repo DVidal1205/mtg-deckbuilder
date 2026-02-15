@@ -34,7 +34,7 @@ The bracket system is a community-driven power level framework to help players f
 ## Bracket 3 — Optimized / High-Power
 **Vibe**: Strong, deliberate decks with a clear optimized gameplan. This is where most enfranchised players land. Not full cEDH — no infinite-combo-or-bust, no tutor pile.
 **Characteristics**:
-- Full suite of fast mana (Mana Crypt, Chrome Mox, Mana Vault, Jeweled Lotus, etc.)
+- Full suite of fast mana
 - **1–2 tutors max.** Bracket 3 standard is light tutoring — find a key piece or answer, not "tutor for the combo every game"
 - **No infinite-combo focus.** Optimized gameplan plus **max 3 game changers** (haymakers / big impact cards that can swing or close games). Decks win through the plan and a few high-impact cards, not by tutoring into a two-card infinite
 - Stax/tax pieces are acceptable (Rhystic Study, Smothering Tithe, Drannith Magistrate, etc.)

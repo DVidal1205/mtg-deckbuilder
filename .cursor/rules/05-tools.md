@@ -1,5 +1,7 @@
 # Tool Usage
 
+**Always use `python3` instead of `python` when running Python scripts.** The system uses Python 3, and `python` may not be available or may point to Python 2.
+
 All card data tools use the **local SQLite database** at `data/cards.db`. Do NOT make external API calls to Scryfall. Only EDHREC tools make external HTTP requests.
 
 **The local database is the source of truth for card legality.** Never suggest the DB is wrong or that a card marked banned might be legal elsewhere. If the DB says a card is banned, treat it as banned.
@@ -9,7 +11,7 @@ All card data tools use the **local SQLite database** at `data/cards.db`. Do NOT
 Search for cards using flexible filters.
 
 ```bash
-python tools/card_search.py --color-identity "WUB" --type "creature" --cmc-max 3 --text "draw" --commander-legal --max 20
+python3 tools/card_search.py --color-identity "WUB" --type "creature" --cmc-max 3 --text "draw" --commander-legal --max 20
 ```
 
 ### Available Flags
@@ -43,7 +45,7 @@ Output concise card summaries, not raw JSON/SQL.
 Get full details for a specific card.
 
 ```bash
-python tools/card_lookup.py "Rhystic Study"
+python3 tools/card_lookup.py "Rhystic Study"
 ```
 
 - Exact match first, then fuzzy/partial match fallback
@@ -55,7 +57,7 @@ python tools/card_lookup.py "Rhystic Study"
 Quick utility: find all commanders or all cards within a color identity.
 
 ```bash
-python tools/color_identity.py "GU" --commanders-only --sort edhrec_rank --max 30
+python3 tools/color_identity.py "GU" --commanders-only --sort edhrec_rank --max 30
 ```
 
 Useful for: "show me all Simic commanders" or "what Boros cards have 'exile' in their text?"
@@ -65,9 +67,9 @@ Useful for: "show me all Simic commanders" or "what Boros cards have 'exile' in 
 Fetch data from EDHREC for a specific commander. Uses the `pyedhrec` library (installed in `.venv`).
 
 ```bash
-python tools/edhrec_commander.py "Meren of Clan Nel Toth"
-python tools/edhrec_commander.py "Meren of Clan Nel Toth" --section high-synergy
-python tools/edhrec_commander.py "Meren of Clan Nel Toth" --section creatures
+python3 tools/edhrec_commander.py "Meren of Clan Nel Toth"
+python3 tools/edhrec_commander.py "Meren of Clan Nel Toth" --section high-synergy
+python3 tools/edhrec_commander.py "Meren of Clan Nel Toth" --section creatures
 ```
 
 ### Available Sections
@@ -93,8 +95,8 @@ Handle network errors and missing commanders gracefully.
 Get top/staple cards for a commander, broken down by type. Uses `pyedhrec`.
 
 ```bash
-python tools/edhrec_top_cards.py "Korvold, Fae-Cursed King"
-python tools/edhrec_top_cards.py "Korvold, Fae-Cursed King" --type creatures --max 15
+python3 tools/edhrec_top_cards.py "Korvold, Fae-Cursed King"
+python3 tools/edhrec_top_cards.py "Korvold, Fae-Cursed King" --type creatures --max 15
 ```
 
 - Query EDHREC for staples associated with a commander
@@ -106,7 +108,7 @@ python tools/edhrec_top_cards.py "Korvold, Fae-Cursed King" --type creatures --m
 Analyze a saved decklist.
 
 ```bash
-python tools/deck_stats.py decks/meren-reanimator.md
+python3 tools/deck_stats.py decks/meren-reanimator.md
 ```
 
 Output:
@@ -162,13 +164,43 @@ The category estimates should be heuristic — scan oracle text for keywords lik
 Export every card in a decklist with **mana cost and oracle text** for LLM context. Use this when the user asks for deck changes, adds, cuts, or swaps so you have full card text without re-querying the DB for each card.
 
 ```bash
-python tools/fetch_full_deck.py decks/mizzix-of-the-izmagnus.md
+python3 tools/fetch_full_deck.py decks/mizzix-of-the-izmagnus.md
 ```
 
 - Parses the deck file (same format as deck_stats: `.md` with fenced code block, or `.txt` with `N Card Name` lines)
 - Looks up each unique card in the local DB for `mana_cost` and `oracle_text` (and `face_oracle_texts` for split/DFC)
 - Outputs one block: `Nx Card Name (mana_cost): oracle text...` per unique card, in deck order
 - **When to use:** Before proposing specific swaps, cuts, or adds for an existing deck, run `fetch_full_deck` on that deck file and use the output as context so your suggestions are accurate (you see exact costs and rules text)
+
+## Validate Type Counts (`tools/validate_types.py`)
+
+Validate (and optionally fix) the type count tables in deck `.md` files. Uses the local DB for card type lookups, with Scryfall API fallback for cards not in the DB (e.g., Universes Beyond / crossover cards).
+
+```bash
+python3 tools/validate_types.py decks/im-tophin-it.md          # single deck
+python3 tools/validate_types.py decks/the-gob.md decks/mr-freaky.md  # multiple decks
+python3 tools/validate_types.py --all                            # all decks
+python3 tools/validate_types.py --all --fix                      # validate + auto-fix tables
+```
+
+### Flags
+- `decks ...` — One or more deck `.md` file paths
+- `--all` — Validate every `.md` file in `decks/`
+- `--fix` — Auto-replace type count tables in-place with correct values
+
+### What it checks
+- Parses the decklist from the fenced code block
+- Looks up each card's type (local DB first, Scryfall fallback)
+- Compares actual type counts against the listed table
+- Reports mismatches with ✅/❌
+- Verifies total card count = 100
+
+### Type classification
+- For MDFCs (double-faced cards), the **front face** determines the type
+- Priority: Creature > Planeswalker > Land > Instant > Sorcery > Enchantment > Artifact
+- Artifact Creatures and Enchantment Creatures count as **Creature**
+
+**Run this after any decklist change** to keep type tables accurate.
 
 ## Tool Design Principles
 

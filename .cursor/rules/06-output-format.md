@@ -2,7 +2,25 @@
 
 ## Decklist Format
 
-Save decklists to `decks/` as `.md` files. Filename: `{commander-slug}.md` (e.g., `meren-of-clan-nel-toth.md`).
+Save decklists to `decks/` as `.md` files.
+
+### Filename convention
+
+The filename is a **slug of the Moxfield deck name**: lowercase, spaces/punctuation → dashes, apostrophes removed.
+
+Examples: Moxfield name "Mizzix - Spells" → `mizzix-spells.md`, "I'm Toph'in it" → `im-tophin-it.md`.
+
+This allows multiple decks with the same commander (e.g., `mizzix-spells.md` and `mizzix-dragons.md`).
+
+### New deck flow
+
+When building a **new** deck that doesn't exist on Moxfield yet:
+
+1. **Ask the user** what they want to name the deck on Moxfield (e.g., "What do you want to call this deck on Moxfield?")
+2. Use that name for `| **Moxfield Name** |` in the metadata table
+3. Derive the filename slug from that name (e.g., "Eldrazi Stompy" → `eldrazi-stompy.md`)
+4. Leave `| **Moxfield ID** |` empty — it will be filled automatically on first sync via `python3 tools/deck_sync.py`
+5. After saving the deck, remind the user to run `python3 tools/deck_sync.py --all` to push it to Moxfield
 
 The file has three parts:
 1. **Metadata** — Markdown with deck info, strategy notes, and any context
@@ -30,6 +48,8 @@ Only include rows for types that appear in the deck. Counts should sum to 100 (i
 | **Color Identity** | BG |
 | **Bracket** | 3 |
 | **Date** | 2026-02-14 |
+| **Moxfield ID** | abc123XYZ |      ← filled by deck_sync.py on first sync
+| **Moxfield Name** | Meren Reanimator |  ← ask user for this; determines filename
 
 ## Strategy
 
@@ -86,7 +106,7 @@ Sacrifice creatures for value, recur them with Meren's experience counters. Prim
 
 ## Playtest Notes Format
 
-Save to `notes/` as `{commander-slug}-notes.md`:
+When a user asks for a playtest note creation, you should interview them about how the deck performed, conditions of the game, and anything else to fill out the note as if you were an after-action report writer. Be thorough and detailed as these notes will be used to influence future refinements to that deck. Save to `notes/` as `{deck-name-slug}-notes.md` (same slug as the deck file):
 
 ```markdown
 # [Deck Name] — Playtest Notes

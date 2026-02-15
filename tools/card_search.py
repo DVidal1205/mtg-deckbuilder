@@ -193,9 +193,10 @@ def build_query(args: argparse.Namespace) -> Tuple[str, List[Any]]:
         where.append("c.rarity = ?")
         params.append(args.rarity.lower())
 
-    # Commander legal
+    # Commander legal (exclude banned cards)
     if args.commander_legal:
         where.append("c.legal_commander = 'legal'")
+        where.append("c.legal_commander != 'banned'")
 
     # Game changer (DB has literal list: game_changer = 1)
     if getattr(args, "game_changer", False):

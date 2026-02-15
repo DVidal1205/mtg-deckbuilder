@@ -81,6 +81,7 @@ mtg-deckbuilder/
 │   ├── edhrec_commander.py  # Fetch EDHREC commander data (uses pyedhrec)
 │   ├── edhrec_top_cards.py  # Get top cards for a commander from EDHREC
 │   ├── deck_stats.py        # Analyze a decklist (curve, pips, categories)
+│   ├── deck_sync.py         # Sync local decks to Moxfield/Archidekt (API implementation needed)
 ├── utils/                   # Data conversion and setup utilities
 │   ├── csv_to_sqlite.py     # Build SQLite DB from Scryfall CSV
 │   └── ...
@@ -90,6 +91,10 @@ mtg-deckbuilder/
 │   └── cards.db             # SQLite database (primary data source)
 ├── decks/                   # Saved decklists (.md files, import-ready)
 ├── notes/                   # Playtest notes and session logs
+├── docs/                    # Documentation
+│   ├── DECK_SYNC_RESEARCH.md      # Research on Moxfield/Archidekt APIs
+│   ├── REVERSE_ENGINEERING_GUIDE.md  # Guide for implementing API integration
+│   └── DECK_SYNC_SUMMARY.md       # Sync tool implementation summary
 ├── requirements.txt
 └── README.md
 ```
@@ -147,6 +152,23 @@ python tools/edhrec_top_cards.py "Korvold, Fae-Cursed King" --type creatures --m
 ```bash
 python tools/deck_stats.py decks/meren-of-clan-nel-toth.md
 ```
+
+### deck_sync.py — Sync Decks to Online Platforms
+```bash
+# List available platforms
+python tools/deck_sync.py --list-platforms
+
+# Dry run (test without syncing)
+python tools/deck_sync.py --platform moxfield --all --dry-run
+
+# Sync all decks (once API is implemented)
+python tools/deck_sync.py --platform moxfield --all
+
+# Sync specific deck
+python tools/deck_sync.py --platform moxfield decks/hakbal-of-the-surging-soul.md
+```
+
+**Note:** The sync tool structure is complete, but API integration requires reverse engineering the Moxfield/Archidekt APIs. See `docs/DECK_SYNC_RESEARCH.md` and `docs/REVERSE_ENGINEERING_GUIDE.md` for implementation details.
 
 ## Design Principles
 

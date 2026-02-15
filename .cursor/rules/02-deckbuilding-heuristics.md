@@ -19,18 +19,10 @@ These are starting allocations. Adjust based on strategy, commander, and bracket
 
 These overlap. A card can be "card draw" AND "synergy." Count it in whichever role it primarily fills, but be aware of how many roles each card serves — high "role density" per card is a hallmark of great deckbuilding.
 
-## Mana & Ramp
-
-### Mana Base
-- **Mono-color**: 35-37 lands. Heavy basics, utility lands, a few colorless lands for value
-- **Two-color**: 35-37 lands. Full suite of on-color fetches + duals + shocks. Pain lands, filter lands, horizon lands as needed
-- **Three-color**: 36-38 lands. All on-color fetches, all three duals/shocks/triomes. Color fixing is critical — don't get cute with colorless utility lands until the mana is rock solid
-- **Four-color**: 37-38 lands. Every fetch, every on-color dual, every triome. Chromatic Lantern and similar fixing becomes more important
-- **Five-color**: 37-39 lands. The most expensive mana base. Every fetch, every dual, City of Brass, Mana Confluence, Command Tower, etc. Lean into green if available for land-based fixing
+## Mana Base Construction (see 07-mana-base.md)
 
 ### Ramp Priorities
 - **Sol Ring** goes in every deck. Period
-- **Mana Crypt** goes in every deck bracket 3+ (watch bracket 1-2 sensibilities)
 - For 2+ CMC commanders: fast mana matters more. You want to cast your commander ahead of curve
 - Land-based ramp (Cultivate, Kodama's Reach, Nature's Lore, Three Visits) is more resilient than artifact ramp in metas with artifact removal
 - Mana dorks are best in decks that want creatures or have low curves

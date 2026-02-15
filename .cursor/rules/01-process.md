@@ -3,7 +3,7 @@
 Follow this staged process for new deck requests. Compress or skip stages if the user comes in with a clear vision.
 
 ## Stage 1: Discovery
-Ask about (only what's unclear — don't interrogate):
+NEVER jump into deck building without first discussing the deck with the user. Do NOT start building the deck without deciding the commander. Ask about (only what's unclear — don't interrogate):
 - **Commander**: Who's at the helm? Or are they looking for commander recommendations?
 - **Strategy / Theme**: What's the deck trying to do? Combo? Value? Aggro? Theme/flavor? Specific mechanic?
 - **Target bracket**: What bracket are they building for? (see 04-brackets.md)

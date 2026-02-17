@@ -62,7 +62,7 @@ _load_dotenv()
 MOXFIELD_USERNAME = os.environ.get("MOXFIELD_USERNAME", "DVidal1205")
 API_BASE = "https://api2.moxfield.com"
 MOXFIELD_WEB = "https://www.moxfield.com"
-MOXFIELD_VERSION = "2026.02.13.1"
+MOXFIELD_VERSION = "2026.02.16.1"
 
 DECKS_DIR = Path(__file__).resolve().parent.parent / "decks"
 

@@ -146,3 +146,7 @@ This is a bracket-3 combat deck: optimized mana, efficient interaction, and expl
 1 Yavimaya Hollow
 1 Maze of Ith
 ```
+
+
+Note
+- Court of Grace

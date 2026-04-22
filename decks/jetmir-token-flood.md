@@ -5,7 +5,7 @@
 | **Commander** | Jetmir, Nexus of Revels |
 | **Color Identity** | RGW |
 | **Bracket** | 3 |
-| **Date** | 2026-02-17 |
+| **Date** | 2026-04-15 |
 | **Moxfield ID** | CiKIDlQR8EeTLuiHR5fsZg |
 | **Moxfield Name** | Jetmir Token Flood |
 
@@ -31,33 +31,33 @@ This is a bracket-3 combat deck: optimized mana, efficient interaction, and expl
 - **Tutor density:** none in maindeck (keeps B3 profile focused on board development over consistency loops).
 - **Interaction package:** efficient spot removal plus flexible answers for problematic permanents.
 - **Mana philosophy:** high untapped source density, full fetch/dual shell, and creature acceleration to cast Jetmir on curve.
+- **2026-04-15:** Added **Endless Foot Assault** (Squad + attack token pressure) and **Slash, Reptile Rampager** (Alliance pings + attack tokens). Cut **Avacyn's Pilgrim** and **Llanowar Elves** (still on Birds, Halfling, Ocelot, Sentinel, and land ramp).
 
 ## Decklist
 
 | Type | Count |
 |------|-------|
-| Creature | 29 |
+| Creature | 28 |
 | Instant | 12 |
 | Sorcery | 7 |
-| Enchantment | 12 |
+| Enchantment | 13 |
 | Artifact | 4 |
 | Planeswalker | 1 |
 | Land | 35 |
 
 ```
 1 Jetmir, Nexus of Revels
-1 Avacyn's Pilgrim
 1 Birds of Paradise
 1 Delighted Halfling
 1 Ocelot Pride
 1 Esper Sentinel
-1 Llanowar Elves
 1 Anim Pakal, Thousandth Moon
 1 Adeline, Resplendent Cathar
 1 Jaheira, Friend of the Forest
 1 Jinnie Fay, Jetmir's Second
 1 King Darien XLVIII
 1 Krenko, Tin Street Kingpin
+1 Slash, Reptile Rampager
 1 Loyal Apprentice
 1 Queen Allenal of Ruadach
 1 Rumor Gatherer
@@ -101,6 +101,7 @@ This is a bracket-3 combat deck: optimized mana, efficient interaction, and expl
 1 Anointed Procession
 1 Felidar Retreat
 1 Parallel Lives
+1 Endless Foot Assault
 1 Cathars' Crusade
 1 Exploration
 1 Mirari's Wake

@@ -5,7 +5,7 @@
 | **Commander** | Mister Negative |
 | **Color Identity** | BW |
 | **Bracket** | 3 |
-| **Date** | 2026-02-14 |
+| **Date** | 2026-04-15 |
 | **Moxfield ID** | BY76dqYAmU-YwvfgImKt_Q |
 | **Moxfield Name** | Mr. Freaky |
 
@@ -36,14 +36,15 @@ B3 — Exquisite Blood + Sanguine Bond is a 2-card infinite if assembled; both a
 - **Negative is 4 MV** — ramp with Sol Ring, Dark Ritual, K'rrik, Ancient Tomb, Arcane Signet.
 - **Blink package** for protection + value: Cloudshift, Ephemerate, Restoration Angel, Felidar Guardian, Teleportation Circle. Blinking Negative dodges removal and re-triggers ETBs on other creatures.
 - **Weak to edicts** (sacrifice effects) — no way to dodge those except having extra creatures on board.
+- **2026-04-15:** Added **Daydream** (blink your creature, returns with a +1/+1 counter; flashback for more protection/value with **Mister Negative**). Cut **Witch Enchanter // Witch-Blessed Meadow**.
 
 ## Decklist
 
 | Type | Count |
 |------|-------|
-| Creature | 18 |
+| Creature | 17 |
 | Instant | 11 |
-| Sorcery | 6 |
+| Sorcery | 7 |
 | Enchantment | 9 |
 | Artifact | 17 |
 | Land | 39 |
@@ -130,7 +131,7 @@ B3 — Exquisite Blood + Sanguine Bond is a 2-card infinite if assembled; both a
 1 The One Ring
 1 Phial of Galadriel
 1 Bloodletter of Aclazotz
-1 Witch Enchanter // Witch-Blessed Meadow
+1 Daydream
 1 Enduring Tenacity
 1 Bloodthirsty Conqueror
 1 Bleachbone Verge

@@ -12,10 +12,13 @@ Search for cards using flexible filters.
 
 ```bash
 python3 tools/card_search.py --color-identity "WUB" --type "creature" --cmc-max 3 --text "draw" --commander-legal --max 20
+python3 tools/card_search.py --set stx,soc --commander-legal --text "draw" --max 40
+python3 tools/card_search.py --set tmt,tmc --commander-legal --max 40
 ```
 
 ### Available Flags
 - `--name "partial name"` — Name contains (case-insensitive)
+- `--set CODE` — Scryfall set code on `cards.set` (case-insensitive). Use multiple times or comma-separated values, e.g. `--set stx,soc` or `--set tmt --set tmc`. When any `--set` is present, each result line includes `[code · full set name]`.
 - `--color-identity "WUB"` — Within this color identity (for Commander)
 - `--colors "UB"` — Exact colors
 - `--type "creature"` — Type line contains
@@ -34,7 +37,9 @@ python3 tools/card_search.py --color-identity "WUB" --type "creature" --cmc-max 
 - `--tag "blink"` — Has mechanic tag (supports multiple, OR'd)
 - `--fts "NEAR(sacrifice creature)"` — FTS5 full-text search (supports AND, OR, NEAR(), NOT, `"phrases"`)
 - `--like "Grave Pact"` — Find cards similar to a known card (by keywords, types, mechanic tags)
-- `--sql "raw WHERE clause"` — Escape hatch for complex queries
+- `--sql "raw WHERE clause"` — Escape hatch for complex queries (table alias is `c`; quote the column name, e.g. `c."set" = 'stx'`)
+
+**Looking up set codes in the DB:** The `cards` table has `"set"` (code) and `set_name`. Example: card *Expansion Algorithm* is on **`soc`** (*Secrets of Strixhaven Commander*); the main university set is **`stx`** (*Strixhaven: School of Mages*); related printings may use **`sos`**, tokens, etc. Teenage Mutant Ninja Turtles is commonly **`tmt`** (main) and **`tmc`** / **`ftmc`** (*Eternal*). Agents can run ad-hoc introspection with `python3 -c` and `sqlite3` against `data/cards.db` if needed.
 
 **FTS5 syntax tips**: Use `"phrase match"` for exact phrases, `term1 AND term2` for both terms, `term1 OR term2` for either, `NEAR(term1 term2)` for proximity, `NOT term` to exclude.
 

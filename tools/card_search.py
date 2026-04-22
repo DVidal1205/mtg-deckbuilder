@@ -24,6 +24,9 @@ Usage examples:
     # Commander search
     python tools/card_search.py --is-commander --color-identity GU --sort edhrec_rank --max 20
 
+    # By Scryfall set code (repeat --set or comma-separated)
+    python tools/card_search.py --set stx,soc --commander-legal --max 100
+
     # Raw SQL escape hatch
     python tools/card_search.py --sql "oracle_text LIKE '%annihilator%'" --commander-legal
 """
@@ -75,7 +78,7 @@ def ci_subset_clause(allowed: List[str]) -> Tuple[str, List[Any]]:
     return f"(color_identity IS NULL OR color_identity = '' OR ({clause}))", params
 
 
-def format_card(row: dict, verbose: bool = False) -> str:
+def format_card(row: dict, verbose: bool = False, show_set: bool = False) -> str:
     """Format a card row into a concise human-readable summary."""
     name = row.get("name", "???")
     mana = row.get("mana_cost") or ""
@@ -92,7 +95,11 @@ def format_card(row: dict, verbose: bool = False) -> str:
 
     rank_str = f"  (EDHREC #{rank})" if rank else ""
     gc_str = "  [game changer]" if row.get("game_changer") == 1 else ""
-    header = f"{name}  {mana}  — {type_line}{pt}{loyalty}{rank_str}{gc_str}"
+    set_str = ""
+    if show_set and row.get("set"):
+        sn = row.get("set_name") or ""
+        set_str = f"  [{row['set']}" + (f" · {sn}" if sn else "") + "]"
+    header = f"{name}  {mana}  — {type_line}{pt}{loyalty}{rank_str}{gc_str}{set_str}"
 
     if verbose:
         oracle = row.get("oracle_text") or row.get("face_oracle_texts") or ""
@@ -193,6 +200,19 @@ def build_query(args: argparse.Namespace) -> Tuple[str, List[Any]]:
         where.append("c.rarity = ?")
         params.append(args.rarity.lower())
 
+    # Set code(s) — Scryfall `set` column, case-insensitive; comma or repeated --set
+    if getattr(args, "set", None):
+        codes: List[str] = []
+        for spec in args.set:
+            for part in spec.split(","):
+                p = part.strip().lower()
+                if p:
+                    codes.append(p)
+        if codes:
+            placeholders = ",".join("?" * len(codes))
+            where.append(f'lower(c."set") IN ({placeholders})')
+            params.extend(codes)
+
     # Commander legal (exclude banned cards)
     if args.commander_legal:
         where.append("c.legal_commander = 'legal'")
@@ -235,7 +255,8 @@ def build_query(args: argparse.Namespace) -> Tuple[str, List[Any]]:
         c.name, c.mana_cost, c.cmc, c.type_line, c.oracle_text,
         c.face_oracle_texts, c.power, c.toughness, c.loyalty,
         c.colors, c.color_identity, c.keywords, c.mechanic_tags,
-        c.rarity, c.edhrec_rank, c.legal_commander, c.game_changer
+        c.rarity, c.edhrec_rank, c.legal_commander, c.game_changer,
+        c."set", c.set_name
     """
 
     fts_join = "JOIN cards_fts ON cards_fts.rowid = c.rowid" if use_fts else ""
@@ -363,6 +384,8 @@ def main():
               %(prog)s --fts "exile NEAR graveyard" --commander-legal
               %(prog)s --like "Grave Pact" --color-identity BG --commander-legal
               %(prog)s --is-commander --color-identity GU --sort edhrec_rank --max 20
+              %(prog)s --set stx --commander-legal --max 50
+              %(prog)s --set stx,soc,tmt --color-identity WUBRG --text "draw"
         """)
     )
 
@@ -388,6 +411,8 @@ def main():
                         help="Has mechanic tag (e.g. blink, aristocrats). Multiple = OR.")
     parser.add_argument("--rarity", type=str, choices=["common", "uncommon", "rare", "mythic"],
                         help="Rarity filter")
+    parser.add_argument("--set", action="append", metavar="CODE",
+                        help="Scryfall set code(s). Repeat flag or use commas (e.g. stx,soc). Case-insensitive.")
     parser.add_argument("--commander-legal", action="store_true", help="Only Commander-legal cards")
     parser.add_argument("--game-changer", action="store_true",
                         help="Only cards on the DB game-changers list (B3 limit: max 3)")
@@ -409,11 +434,17 @@ def main():
                         help="Sort direction (default: ASC)")
     parser.add_argument("--verbose", "-v", action="store_true",
                         help="Show full oracle text for each card")
+    parser.add_argument("--oracle-text", action="store_true",
+                        help="Alias for --verbose (show full oracle text for each card)")
     parser.add_argument("--sql", type=str, metavar="WHERE",
                         help="Raw SQL WHERE clause (escape hatch)")
     parser.add_argument("--db", type=str, default=DB_PATH, help=argparse.SUPPRESS)
 
     args = parser.parse_args()
+
+    # Keep backwards compatibility while exposing a clearer flag name.
+    if args.oracle_text:
+        args.verbose = True
 
     db_path = os.path.abspath(args.db)
     if not os.path.exists(db_path):
@@ -426,6 +457,8 @@ def main():
         sys.exit(1)
 
     # ── "Like" mode ──
+    show_set = bool(getattr(args, "set", None))
+
     if args.like:
         results = find_similar(db_path, args.like, args)
         if not results:
@@ -435,7 +468,7 @@ def main():
         for i, row in enumerate(results, 1):
             score = row.get("similarity_score", "")
             score_str = f"  [sim: {score}]" if score else ""
-            print(f"  {i:>3}. {format_card(row, verbose=args.verbose)}{score_str}")
+            print(f"  {i:>3}. {format_card(row, verbose=args.verbose, show_set=show_set)}{score_str}")
             if args.verbose:
                 print()
         sys.exit(0)
@@ -460,7 +493,7 @@ def main():
     print(f"Found {len(rows)} card(s):\n")
     for i, row in enumerate(rows, 1):
         r = dict(row)
-        print(f"  {i:>3}. {format_card(r, verbose=args.verbose)}")
+        print(f"  {i:>3}. {format_card(r, verbose=args.verbose, show_set=show_set)}")
         if args.verbose:
             print()
 

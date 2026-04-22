@@ -1,133 +1,153 @@
-# Mizzix Control
+# Mizzix — Spellslinger (final)
 
 | | |
 |---|---|
 | **Commander** | Mizzix of the Izmagnus |
-| **Color Identity** | UR |
-| **Bracket** | 3 |
-| **Date** | 2026-02-14 |
+| **Color identity** | UR |
+| **Mainboard** | 99 |
+| **Last updated** | 2026-04-15 (mana base tuned) |
 | **Moxfield ID** | pjT8Azi5O0ixSAI-23KvWw |
 | **Moxfield Name** | Mizzix - Spells |
 
-## Strategy
+**Moxfield:** [Mizzix - Spells](https://www.moxfield.com/decks/pjT8Azi5O0ixSAI-23KvWw) · **Scryfall (commander):** [Mizzix of the Izmagnus](https://scryfall.com/card/cmm/348/mizzix-of-the-izmagnus)
 
-1. **Stick Mizzix, build experience via staircase** — Cast MV 1 → 2 → 3… to accumulate experience counters. Protect with Greaves, Boots, Deflecting Swat, Fierce Guardianship, and the counter suite.
-2. **Control the board while pingers bleed the table** — 15 counterspells + targeted removal keep the board in check. Meanwhile, Guttersnipe (2 to each per spell), Vivi Ornitier (1 to each per noncreature), Electrostatic Field (1 to each per spell), and Niv-Mizzet Parun (ping on draw) drain passively. Veyran doubles ALL these triggers.
-3. **Finish with big X spells** — Once experience is stacked, Comet Storm costs RR for X=8, Crackle with Power deals 5×X, Blue Sun's Zenith decks opponents. Aetherflux Reservoir at 50+ life deals 50. Mizzix's Mastery (overload) recasts your entire GY as a lethal second wave.
+## Game plan
 
-B3 — no infinites. **Game changers:** Rhystic Study, Fierce Guardianship, Cyclonic Rift. **Tutors:** Merchant Scroll.
+1. **Cast Mizzix and climb experience** — Play instants and sorceries with **mana value greater than your experience count** so Mizzix keeps handing out counters; every counter makes future instants and sorceries **{1} cheaper** (generic reduction only).
+2. **Stack discounts** — **Baral**, **Ral** (front), **Dirgur** (while prepared), **Mindsplice Apparatus**, and **Primal Amulet** all reduce spell costs and **compound** with Mizzix.
+3. **Double triggers** — **[Harmonic Prodigy](https://scryfall.com/card/soc/123/harmonic-prodigy)** (*Secrets of Camelot*): *If a triggered ability of a Shaman or **another Wizard** you control triggers, that ability triggers an additional time.* **Mizzix** is a Wizard, so **experience triggers** and **Archmage Emeritus** magecraft (among others) can **fire twice** while Prodigy is out.
+4. **Protect the commander** — **Fierce Guardianship**, **Deflecting Swat**, **Swiftfoot Boots**, **Riptide Laboratory**, **Command Beacon**, **Mistrise Village** (uncounterable line), and a **deep counter suite** keep Mizzix on the table.
+5. **Close** — **X** burn (**Comet Storm**, **Crackle with Power**, **Bonfire**, **Jaya**), **Prismari** / **Storm King’s Thunder** / **Epic Experiment** chains, **Mizzix’s Mastery** overload, **Time Stretch**, and **Treasure** from **Storm-Kiln Artist** and **Hell to Pay**.
 
-## Key Synergies
+## Key packages
 
-- **Mizzix experience + X spells** — 8 experience → Comet Storm costs RR for X=8; Blue Sun's Zenith costs UUU for X=8. Every experience counter is permanent value.
-- **Veyran doubles ALL spell triggers** — Guttersnipe 2→4, Electrostatic Field 1→2, Storm-Kiln 1→2 Treasures, Niv-Mizzet draw 1→2. Massive multiplier.
-- **Guttersnipe + Field + Veyran** — 6 damage to each opponent per spell cast. The table dies to your control spells.
-- **Niv-Mizzet, Parun** — draws on EVERY instant/sorcery cast (yours AND opponents'), pings on each draw. Can't be countered.
-- **Storm-Kiln Artist** — Treasure per spell. Ramp engine that funds big X turns.
-- **Flux Channeler** — proliferate on every noncreature spell. Grows Mizzix experience counters directly.
-- **Young Pyromancer / Third Path Iconoclast** — 1/1 tokens for blockers + edict protection.
-- **Mizzix's Mastery (overload)** — recast entire GY. Finisher or recovery after a long grind game.
-- **Bender's Waterskin** — untaps during each opponent's untap step. Always have mana for countermagic.
+| Package | Cards |
+|--------|--------|
+| **Experience & triggers** | Mizzix, Katara, Harmonic Prodigy, Flux Channeler, Experimental Augury, Fuel for the Cause, Radstorm, Expansion Algorithm |
+| **Draw & selection** | Rhystic Study, Mystic Remora, Frantic Search, Archmage Emeritus, Finale of Revelation, Drown in Dreams, Thassa’s Intervention, Mystic Confluence, Firemind’s Foresight, Wisdom of Ages |
+| **Counters** | Fierce Guardianship, Mana Drain, Counterspell, Rewind, Spell Burst, Power Sink, Fuel for the Cause, Mystic Confluence, Thassa’s Intervention |
+| **Removal & tempo** | Cyclonic Rift, Capsize, Swan Song, Blasphemous Act, Curse of the Swine, Hell to Pay, Aetherize, Otawara |
+| **Copy & storm** | Storm King’s Thunder, Reiterate, Narset’s Reversal, Increasing Vengeance, Turnabout, Prismari, Radstorm, Epic Experiment |
+| **Recursion** | Lier, Divergent Equation, Mystic Sanctuary, Mizzix’s Mastery, Wisdom of Ages |
+| **Mana** | Sol Ring, Arcane Signet, Bender’s Waterskin, Resonating Lute, Treasures, **Resonating Lute** spell-only doubling |
 
-## Notes
+## Mana base (optimized — utility unchanged)
 
-- **Mana base:** 37 lands (12 Island, 9 Mountain, 16 nonbasic). 60/40 blue/red split. Key: Volcanic Island, Steam Vents, Mystic Sanctuary (rebuy top instant/sorcery), Command Beacon (dodge commander tax).
-- **15 counterspells** — this is a control deck first, finisher deck second. Hold up interaction and advance with pingers simultaneously.
-- **Protect Mizzix:** Greaves, Boots, Deflecting Swat, Fierce Guardianship + the counter suite. Losing experience counters is devastating.
-- **Bender's Waterskin** replaces Mind Stone — untaps on each opponent's untap step so you always have 1 mana for counters on opponents' turns.
-- **Ral, Monsoon Mage** — 1R creature, instants/sorceries cost {1} less. Coin flip each spell on your turn to flip into a planeswalker.
+**Constraint:** All **utility lands** stay as-is: Arcane Lighthouse, Command Beacon, Mystic Sanctuary, Otawara, Reliquary Tower, Riptide Laboratory, Mistrise Village.
 
-## Decklist
+**Pip check (mainboard + commander, `cards.json`):** about **64** blue and **30** red **colored mana symbols** in casting costs → roughly **68% blue / 32% red**. The old **10 Island / 5 Mountain** basics skewed **too red** versus that split (duals and fetches add **both** colors equally, so mono **Mountain**s were over-weighting red sources).
 
-| Type | Count |
-|------|-------|
-| Creature | 13 |
-| Instant | 24 |
-| Sorcery | 13 |
-| Enchantment | 2 |
-| Artifact | 11 |
-| Land | 37 |
+**Changes (still 36 lands):**
+
+| Change | Why |
+|--------|-----|
+| **11 Island**, **3 Mountain** | Shift basics toward **blue** to track **~68% / ~32%** pip weight; still plenty of **duals + fetches + rocks** for early **RR** / **RRR** |
+| **+Spirebluff Canal**, **−1 Mountain** (net vs old list: **+1 untapped UR dual**, **−2 Mountain**, **+1 Island**) | **Fast** Izzet land (untapped while you’re low on lands); replaces a **slow red-only** basic with a **blue + red** source, which **helps the U:R balance** more than another Mountain |
+
+**Fixing package (non-utility):** Cascade Bluffs, Command Tower, Fiery Islet, Riverglide Pathway, Scorched Geyser, Shivan Reef, **Spirebluff Canal**, Steam Vents, Stormcarved Coast, Sulfur Falls, Training Center, Turbulent Springs, Volcanic Island, Prismatic Vista, Scalding Tarn.
+
+## Decklist (99)
 
 ```
 1 Mizzix of the Izmagnus
-1 Baral, Chief of Compliance
-1 Third Path Iconoclast
-1 Young Pyromancer
-1 Archmage Emeritus
-1 Niv-Mizzet, Parun
-1 Storm-Kiln Artist
-1 Veyran, Voice of Duality
-1 Vivi Ornitier
-1 Electrostatic Field
-1 Flux Channeler
-1 Guttersnipe
-1 Pact of Negation
-1 Brainstorm
-1 Flusterstorm
-1 Frantic Search
-1 Lightning Bolt
-1 Izzet Charm
-1 Abrade
-1 Chaos Warp
-1 Counterspell
-1 Cyclonic Rift
-1 Mana Drain
-1 Merchant Scroll
-1 Mystic Retrieval
-1 Negate
-1 Pyroblast
-1 Red Elemental Blast
-1 Deflecting Swat
-1 Disallow
-1 Firemind's Foresight
-1 Rewind
-1 Fierce Guardianship
-1 Flame of Anor
-1 Vandalblast
-1 Windfall
-1 Braingeyser
-1 Narset's Reversal
-1 Crackle with Power
-1 Tezzeret's Gambit
-1 Mizzix's Mastery
-1 Blue Sun's Zenith
-1 Comet Storm
-1 Ponder
-1 Preordain
-1 Epic Experiment
-1 Blasphemous Act
-1 Jaya's Immolating Inferno
-1 Mystic Remora
-1 Rhystic Study
-1 Bender's Waterskin
-1 Aetherflux Reservoir
-1 Thought Vessel
-1 Lotus Petal
-1 Sol Ring
-1 Pyretic Ritual
+1 Aetherize
+1 Arcane Lighthouse
 1 Arcane Signet
-1 Fellwar Stone
-1 Izzet Signet
-1 Lightning Greaves
-1 Swiftfoot Boots
-1 Talisman of Creativity
-1 Ral, Monsoon Mage // Ral, Leyline Prodigy
+1 Archmage Emeritus
+1 Baral, Chief of Compliance
+1 Bender's Waterskin
+1 Blasphemous Act
+1 Bonfire of the Damned
+1 Capsize
+1 Cascade Bluffs
+1 Comet Storm
 1 Command Beacon
 1 Command Tower
-1 Prismatic Vista
-1 Reliquary Tower
-1 Scalding Tarn
-1 Steam Vents
-1 Training Center
-1 Volcanic Island
-1 Sulfur Falls
-1 Spirebluff Canal
-1 Frostboil Snarl
-1 Cascade Bluffs
+1 Counterspell
+1 Crackle with Power
+1 Curse of the Swine
+1 Cyclonic Rift
+1 Deflecting Swat
+1 Dirgur Focusmage
+1 Divergent Equation
+1 Drown in Dreams
+1 Electrodominance
+1 Epic Experiment
+1 Expansion Algorithm
+1 Experimental Augury
+1 Fierce Guardianship
 1 Fiery Islet
-1 Riverglide Pathway // Lavaglide Pathway
+1 Finale of Revelation
+1 Firemind's Foresight
+1 Flux Channeler
+1 Frantic Search
+1 Fuel for the Cause
+1 Harmonic Prodigy
+1 Hell to Pay
+1 Increasing Vengeance
+11 Island
+1 Jaya's Immolating Inferno
+1 Katara, Waterbending Master
+1 Lier, Disciple of the Drowned
+1 Mana Drain
+1 Mindsplice Apparatus
+1 Mistrise Village
+1 Mizzix's Mastery
+3 Mountain
+1 Mystic Confluence
+1 Mystic Remora
 1 Mystic Sanctuary
+1 Mystic Speculation
+1 Narset's Reversal
 1 Otawara, Soaring City
-9 Mountain
-12 Island
+1 Power Sink
+1 Primal Amulet
+1 Prismari, the Inspiration
+1 Prismatic Vista
+1 Propaganda
+1 Radstorm
+1 Ral, Monsoon Mage
+1 Reiterate
+1 Reliquary Tower
+1 Resonating Lute
+1 Rewind
+1 Rhystic Study
+1 Riptide Laboratory
+1 Riverglide Pathway
+1 Scalding Tarn
+1 Scorched Geyser
+1 Shivan Reef
+1 Sol Ring
+1 Spell Burst
+1 Spirebluff Canal
+1 Steam Vents
+1 Storm King's Thunder
+1 Storm-Kiln Artist
+1 Stormcarved Coast
+1 Sulfur Falls
+1 Swan Song
+1 Swiftfoot Boots
+1 Talrand, Sky Summoner
+1 Thassa's Intervention
+1 Time Stretch
+1 Training Center
+1 Turbulent Springs
+1 Turnabout
+1 Veyran, Voice of Duality
+1 Vivi Ornitier
+1 Volcanic Island
+1 Wisdom of Ages
 ```
+
+### Type breakdown (Scryfall types, first face)
+
+| Type | Count |
+|------|------:|
+| Land | 36 |
+| Instant | 27 |
+| Creature | 13 |
+| Sorcery | 13 |
+| Artifact | 7 |
+| Enchantment | 3 |
+
+*Type totals from Scryfall first face; automated tools that treat `Primal Amulet // Primal Wellspring` as a land type line will over-count lands by one.*

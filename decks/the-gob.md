@@ -41,23 +41,21 @@ B3 — no infinites. **Game changers:** Purphoros, Shared Animosity, Coat of Arm
 
 | Type | Count |
 |------|-------|
-| Creature | 27 |
-| Instant | 9 |
+| Creature | 23 |
+| Instant | 11 |
 | Sorcery | 6 |
-| Enchantment | 7 |
-| Artifact | 20 |
+| Enchantment | 6 |
+| Artifact | 21 |
 | Planeswalker | 1 |
-| Land | 30 |
+| Land | 33 |
 
 ```
 1 Krenko, Mob Boss
 1 Lightning Greaves
-1 Lotus Petal
 1 Purphoros, God of the Forge
 1 Skirk Prospector
 1 Skullclamp
 1 Sol Ring
-1 Torch Courier
 1 Umbral Mantle
 1 Goblin Grenade
 1 Conspicuous Snoop
@@ -65,7 +63,6 @@ B3 — no infinites. **Game changers:** Purphoros, Shared Animosity, Coat of Arm
 1 Ruby Medallion
 1 Goblin War Strike
 1 Goblin Chirurgeon
-1 Bloodmark Mentor
 1 Massive Raid
 1 Thousand-Year Elixir
 1 Command Beacon
@@ -84,30 +81,20 @@ B3 — no infinites. **Game changers:** Purphoros, Shared Animosity, Coat of Arm
 1 Shared Animosity
 1 Throne of the God-Pharaoh
 1 Hordeling Outburst
-1 Springleaf Drum
-1 Goblin Assassin
 1 Mana Echoes
 1 Mob Justice
 1 Cloudstone Curio
 1 Brightstone Ritual
-1 Thornbite Staff
 1 Battle Hymn
-1 Burn at the Stake
-1 Infernal Plunge
 1 Mass Hysteria
-1 Tibalt's Trickery
 1 Battlemage's Bracers
-1 Battle Cry Goblin
 1 Zariel, Archduke of Avernus
 1 Hobgoblin Bandit Lord
-1 Goro-Goro, Disciple of Ryusei
 1 Patriar's Seal
 1 Wild Magic Surge
-1 Bitter Reunion
-1 City on Fire
 1 Rising of the Day
 1 Sting, the Glinting Dagger
-1 Hidden Volcano
+1 Inventors' Fair
 1 Return the Favor
 1 Siege-Gang Lieutenant
 1 Arena of Glory
@@ -121,15 +108,24 @@ B3 — no infinites. **Game changers:** Purphoros, Shared Animosity, Coat of Arm
 1 Howlsquad Heavy
 1 Hexing Squelcher
 1 Arcane Signet
+1 Bolt Bend
 1 Castle Embereth
-1 Gempalm Incinerator
+1 Chaos Warp
+1 Idol of Oblivion
+1 Jeska's Will
+1 Moria Marauder
 1 Ashnod's Altar
 1 Coat of Arms
-1 Foundry Street Denizen
 1 Goblin Matron
 1 Goblin Motivator
 1 Goblin Piledriver
+1 Pashalik Mons
+1 Rundvelt Hordemaster
 1 Goblin Warchief
 1 Impact Tremors
-19 Mountain
+23 Mountain
+1 Valakut Awakening // Valakut Stoneforge
+1 War Room
+1 Swiftfoot Boots
+1 The One Ring
 ```
